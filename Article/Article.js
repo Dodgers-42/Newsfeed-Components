@@ -142,6 +142,10 @@ function articleMaker (title, date, firstParagraph, secondParagraph) {
   articleSecondParagraph.classList.add('articleSecondParagraph');
   articleThirdParagraph.classList.add('articleThirdParagraph');
   expandButton.classList.add('expandButton');
+  // expandButton.style.width = '40px';
+  // expandButton.style.backgroundColor = 'dodgerblue';
+  // expandButton.style.position = 'absolute';
+  // expandButton.style.top = '0';
 
   // update content
   articleTitle.textContent = title;
@@ -149,6 +153,23 @@ function articleMaker (title, date, firstParagraph, secondParagraph) {
   articleFirstParagraph.textContent = firstParagraph;
   articleSecondParagraph.textContent = secondParagraph;
   articleTitle.textContent = thirdParagraph;
+  expandButton.textContent = 'open'
 
   // events
-}
+
+  expandButton.addEventListener('click', (e) => {
+    const articleOpen = document.querySelector('.article-open')
+    article.classList.toggle('.article-open');
+  });
+
+  return article;
+};
+
+// forEach
+const articles = document.querySelector('.acticles');
+
+data.forEach[(obj)  => {
+  articles.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
+}];
+
+// console.log(articles);

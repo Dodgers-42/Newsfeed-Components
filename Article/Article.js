@@ -84,8 +84,24 @@ const data = [
 
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
-          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`   
+  },
+
+  {title: 'Pro Surfer',
+  date: 'Oct 31st, 2019',
+  firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+        hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+        Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+  secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+        hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+        hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+        hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+  thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+        Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+        Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`   
+}
 ];
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
@@ -112,7 +128,7 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
 
-function articleMaker (title, date, firstParagraph, secondParagraph) {
+function articleMaker (title, date, firstParagraph, secondParagraph, thirdParagraph) {
 
   // creating const
   const article = document.createElement('div');
@@ -124,13 +140,21 @@ function articleMaker (title, date, firstParagraph, secondParagraph) {
   const expandButton = document.createElement('span');
   const articleOpen = document.createElement('div');
 
+  // update content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleFirstParagraph.textContent = firstParagraph;
+  articleSecondParagraph.textContent = secondParagraph;
+  articleThirdParagraph.textContent = thirdParagraph;
+  expandButton.textContent = 'open'
+
   // appending
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
   article.appendChild(articleFirstParagraph);
   article.appendChild(articleSecondParagraph);
   article.appendChild(articleThirdParagraph);
-  article.appendChild(article);
+  // article.appendChild(article);
   article.appendChild(expandButton);
   article.appendChild(articleOpen);
 
@@ -147,29 +171,23 @@ function articleMaker (title, date, firstParagraph, secondParagraph) {
   // expandButton.style.position = 'absolute';
   // expandButton.style.top = '0';
 
-  // update content
-  articleTitle.textContent = title;
-  articleDate.textContent = date;
-  articleFirstParagraph.textContent = firstParagraph;
-  articleSecondParagraph.textContent = secondParagraph;
-  articleTitle.textContent = thirdParagraph;
-  expandButton.textContent = 'open'
-
+  
   // events
 
   expandButton.addEventListener('click', (e) => {
-    const articleOpen = document.querySelector('.article-open')
-    article.classList.toggle('.article-open');
+    // const articleOpen = document.querySelector('.article-open')
+    article.classList.toggle('article-open');
   });
 
   return article;
 };
 
 // forEach
-const articles = document.querySelector('.acticles');
+const articles = document.querySelector('.articles');
 
-data.forEach[(obj)  => {
+data.forEach((obj)  => {
+  console.log(obj.title)
   articles.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
-}];
+});
 
-// console.log(articles);
+console.log(articles);

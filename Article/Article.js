@@ -111,3 +111,44 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+function articleMaker (title, date, firstParagraph, secondParagraph) {
+
+  // creating const
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const articleFirstParagraph = document.createElement('p');
+  const articleSecondParagraph = document.createElement('p');
+  const articleThirdParagraph = document.createElement('p');
+  const expandButton = document.createElement('span');
+  const articleOpen = document.createElement('div');
+
+  // appending
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(articleFirstParagraph);
+  article.appendChild(articleSecondParagraph);
+  article.appendChild(articleThirdParagraph);
+  article.appendChild(article);
+  article.appendChild(expandButton);
+  article.appendChild(articleOpen);
+
+  // styling
+  article.classList.add('article');
+  articleTitle.classList.add('articleTitle');
+  articleDate.classList.add('articleDate');
+  articleFirstParagraph.classList.add('articleFirstParagraph');
+  articleSecondParagraph.classList.add('articleSecondParagraph');
+  articleThirdParagraph.classList.add('articleThirdParagraph');
+  expandButton.classList.add('expandButton');
+
+  // update content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  articleFirstParagraph.textContent = firstParagraph;
+  articleSecondParagraph.textContent = secondParagraph;
+  articleTitle.textContent = thirdParagraph;
+
+  // events
+}

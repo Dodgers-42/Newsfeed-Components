@@ -51,7 +51,7 @@ function menuMaker(items){
   ulList.appendChild(li5);
 
 
-  const menuButton = document.querySelector('menu-button');
+  const menuButton = document.querySelector('.menu-button');
   console.log(menuButton);
 
   menuButton.addEventListener('click', (e) => {

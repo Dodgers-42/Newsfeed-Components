@@ -49,14 +49,14 @@ function menuMaker(items){
     // menuButton.appendChild(menuMaker(i.items));
     console.log(i);
   });
-
+  menuDiv.classList.add('menu');
   menuDiv.appendChild(ulList);
-  ulList.appendChild(li0);
-  ulList.appendChild(li1);
-  ulList.appendChild(li2);
-  ulList.appendChild(li3);
-  ulList.appendChild(li4);
-  ulList.appendChild(li5);
+  // ulList.appendChild(li0);
+  // ulList.appendChild(li1);
+  // ulList.appendChild(li2);
+  // ulList.appendChild(li3);
+  // ulList.appendChild(li4);
+  // ulList.appendChild(li5);
 
 
   const menuButton = document.querySelector('.menu-button');
@@ -77,5 +77,5 @@ function menuMaker(items){
   menuMaker(menuItems);
 
 
-const body = document.querySelector('body');
-body.appendChild(menuMaker (menuItems));
+const header = document.querySelector('.header');
+header.appendChild(menuMaker (menuItems));
